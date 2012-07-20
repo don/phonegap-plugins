@@ -1,0 +1,15 @@
+{
+  "name": "PhoneGap Plugins",
+  "description": "PhoneGap Day 2012 Presentation",
+  "author": "Don Coleman",
+  "pause_msg": "Paused !!!",
+  "sections": [
+    {"section":"intro"},
+    {"section":"javascript"},
+    {"section":"config"},
+    {"section":"android"},
+    {"section":"ios"},
+    {"section":"windowsphone"},    
+    {"section":"wrapup"}
+  ]
+}

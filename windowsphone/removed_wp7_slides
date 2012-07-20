@@ -1,0 +1,43 @@
+<!SLIDE>
+
+	@@@ javascript
+	cordova.exec(win, fail, 
+		"Hello", "greet", ["World"]);
+
+<!SLIDE>
+.notes WP7 impl converts lists using NamedArgs
+Unfortunately we can't append data to named args
+https://github.com/apache/incubator-cordova-js/blob/master/lib/wp7/exec.js
+
+	@@@ javascript
+	cordova.exec(win, fail, 
+		"Hello", "greet", { name : "World" });
+		
+
+<!SLIDE> 
+
+	@@@ c
+    public class Hello : BaseCommand
+    {
+        [DataContract]
+        public class GreetArgs 
+        {
+            [DataMember]
+            public string name { get; set; }
+        }
+
+        public void greet(string args)
+        {
+            GreetArgs data = JsonHelper
+				.Deserialize<GreetArgs>(args);
+            string msg = "Hello " + data.name;
+			// ...
+			
+<!SLIDE>
+.notes universal Javascript
+wrap object in list
+benefits on iOS too since ends up in NSMutableDictionary instead of NSMutableArray
+
+	@@@ javascript
+	cordova.exec(win, fail, 
+	  "Hello", "greet", [{ name : "World" }]);
